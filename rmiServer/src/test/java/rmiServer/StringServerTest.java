@@ -38,6 +38,8 @@ class StringServerTest
 		String s3 = "World";
 		String s4 = "!";
 		
+		String concat3 = "";
+		
 		try
 		{
 			String concat1 = stringServer.concatStrings(s1, s2);
@@ -46,13 +48,14 @@ class StringServerTest
 			String concat2 = stringServer.concatStrings(concat1, s3);
 			assertEquals("Hello World", concat2);
 			
-			String concat3 = stringServer.concatStrings(concat2, s4);
-			assertEquals("Hello World!", concat3);
+			concat3 = stringServer.concatStrings(concat2, s4);
 		}
 		catch (RemoteException e)
 		{
 			e.printStackTrace();
 		}
+		
+		assertEquals("Hello World!", concat3);
 	}
 
 }
